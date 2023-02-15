@@ -13,7 +13,7 @@ function updateCaseNumber(isIncrease) {
 
   let newCaseNumber;
 
-  if (isIncrease) {
+  if (isIncrease === true) {
     newCaseNumber = previousCaseNumber + 1;
   } else {
     newCaseNumber = previousCaseNumber - 1;
@@ -31,6 +31,7 @@ function updateCaseTotalPrice(newCaseNumber) {
 document.getElementById("btn-case-plus").addEventListener("click", function () {
   const newCaseNumber = updateCaseNumber(true);
   updateCaseTotalPrice(newCaseNumber);
+  calculateSubTotal();
 });
 
 document
@@ -39,4 +40,5 @@ document
     const newCaseNumber = updateCaseNumber(false);
 
     updateCaseTotalPrice(newCaseNumber);
+    calculateSubTotal();
   });
